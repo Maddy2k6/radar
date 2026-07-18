@@ -1,20 +1,21 @@
 <div align="center">
 
 # 🕷️ RADAR CHAN
-### Futuristic Arduino Radar Visualization
 
-A cyberpunk-inspired real-time radar system built using **Arduino Uno**, **HC-SR04 Ultrasonic Sensor**, **Servo Motor**, and a modern **HTML/CSS/JavaScript** dashboard powered by the **Web Serial API**.
+### Futuristic Arduino Radar using HC-SR04 + Servo + Web Serial
 
-![Radar Chan Demo](assets/radar-demo.png)
+A real-time cyberpunk-inspired radar visualization built using **Arduino Uno**, **HC-SR04 Ultrasonic Sensor**, **SG90 Servo Motor**, and a modern **HTML/CSS/JavaScript** interface.
+
+<img src="img.png" width="900">
+
+<br>
 
 ![HTML](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
-![CSS](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 ![Arduino](https://img.shields.io/badge/Arduino-00979D?style=for-the-badge&logo=arduino&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 
----
-
-*"Every echo tells a story."*
+**Real-Time Object Detection • Interactive Radar • Web Serial API**
 
 </div>
 
@@ -22,9 +23,9 @@ A cyberpunk-inspired real-time radar system built using **Arduino Uno**, **HC-SR
 
 # 📖 Overview
 
-RADAR CHAN transforms a simple Arduino ultrasonic radar into an interactive futuristic visualization inspired by advanced HUD interfaces.
+RADAR CHAN is a browser-based radar visualization that communicates directly with an Arduino through the **Web Serial API**.
 
-The system continuously scans the surroundings using a servo-mounted HC-SR04 ultrasonic sensor and displays detected objects in real time through a responsive browser dashboard.
+The Arduino rotates an ultrasonic sensor using a servo motor, continuously measuring surrounding objects. Distance and angle data are streamed to the browser, where they are rendered as a futuristic animated radar interface.
 
 ---
 
@@ -34,12 +35,13 @@ The system continuously scans the surroundings using a servo-mounted HC-SR04 ult
 - 📡 180° radar scanning
 - ⚡ Web Serial communication
 - 🌐 Browser-based interface
-- 🎨 Futuristic cyberpunk UI
-- 📊 Live distance measurements
-- 🔄 Automatic scanning mode
-- 🎮 Manual angle control
-- 📈 Signal strength indicator
-- 💻 No software installation required
+- 🎨 Futuristic Spider-themed UI
+- 📊 Live angle & distance display
+- 🔄 Auto scanning mode
+- 🎮 Manual servo control
+- 📈 Signal strength visualization
+- 🔊 Sound effects
+- 💻 Works directly in Chrome / Edge
 
 ---
 
@@ -50,136 +52,127 @@ The system continuously scans the surroundings using a servo-mounted HC-SR04 ult
 | Arduino Uno | 1 |
 | HC-SR04 Ultrasonic Sensor | 1 |
 | SG90 Servo Motor | 1 |
-| Jumper Wires | Multiple |
-| USB Cable | 1 |
 | Breadboard | 1 |
+| Jumper Wires | Several |
+| USB Cable | 1 |
 
 ---
 
-# 💻 Technologies
+# 🔌 Circuit Connections
 
-- HTML5
-- CSS3
-- JavaScript
-- Arduino C++
-- Web Serial API
-- Canvas API
+## HC-SR04 Ultrasonic Sensor
 
----
-
-# 📷 Project Preview
-
-## Dashboard
-
-![Dashboard](assets/radar-demo.png)
+| HC-SR04 | Arduino Uno |
+|----------|-------------|
+| VCC | 5V |
+| GND | GND |
+| TRIG | D10 |
+| ECHO | D11 |
 
 ---
 
-# ⚙️ Working Principle
+## SG90 Servo Motor
 
-1. Servo rotates from **15° to 165°**
-2. HC-SR04 measures obstacle distance.
-3. Arduino sends:
-```
-
-angle,distance
-
-```
-4. Browser receives data using Web Serial API.
-5. Radar updates in real time.
+| Servo | Arduino Uno |
+|--------|-------------|
+| Red (VCC) | 5V |
+| Brown/Black (GND) | GND |
+| Orange (Signal) | D12 |
 
 ---
 
-# 📂 Project Structure
+# 📂 Repository Structure
 
 ```
-
 Radar-Chan/
 │
-├── index.html
-├── style.css
-├── script.js
-├── arduino/
-│   └── radar.ino
-│
-├── assets/
-│   ├── radar-demo.png
-│   └── screenshot.png
-│
+├── index.html          # Radar Dashboard
+├── sketch_apr10a.ino   # Arduino Program
+├── img.png             # Project Preview
 └── README.md
-
 ```
 
 ---
 
 # 🚀 Getting Started
 
-## Clone Repository
+## 1. Upload Arduino Code
 
-```bash
-git clone https://github.com/Maddy2k6/YOUR_REPOSITORY.git
+Open
+
+```
+sketch_apr10a.ino
 ```
 
-## Open
+Upload it to your Arduino Uno.
+
+---
+
+## 2. Open the Dashboard
 
 Simply open
 
 ```
-
 index.html
-
 ```
 
-in Google Chrome or Microsoft Edge.
+using **Google Chrome** or **Microsoft Edge**.
 
 ---
 
-# 🔌 Connect Arduino
+## 3. Connect Arduino
 
-1. Upload the Arduino sketch.
-2. Connect Arduino using USB.
-3. Open the webpage.
-4. Click **Connect**.
-5. Select the correct COM port.
-6. Enjoy real-time radar scanning.
+Click
+
+```
+CONNECTED!
+```
+
+Choose your COM port and start scanning.
 
 ---
 
-# 📡 Serial Format
+# 📡 Serial Communication
+
+The Arduino continuously sends data in the format:
 
 ```
-
 ANGLE,DISTANCE
-
 ```
 
 Example
 
 ```
-
-125,37
-
+90,34
 ```
+
+where
+
+- 90 → Servo Angle
+- 34 → Distance in centimeters
+
+---
+
+# ⚙️ Technologies Used
+
+- HTML5
+- CSS3
+- JavaScript
+- Canvas API
+- Arduino C++
+- Web Serial API
 
 ---
 
 # 🎯 Future Improvements
 
 - ESP32 Wi-Fi Support
-- Multiple target tracking
-- AI object classification
-- Radar recording
-- Mobile responsive layout
-- 3D visualization
-- Voice notifications
-
----
-
-# 🤝 Contributions
-
-Contributions, feature requests, and suggestions are welcome.
-
-Feel free to fork this repository and submit a pull request.
+- Multiple Object Tracking
+- AI Object Recognition
+- Radar Data Recording
+- Mobile Responsive UI
+- 3D Radar Visualization
+- Voice Alerts
 
 ---
 
@@ -187,14 +180,19 @@ Feel free to fork this repository and submit a pull request.
 
 **Madhav M N**
 
-- GitHub: https://github.com/Maddy2k6
-- LinkedIn: https://linkedin.com/in/madhav-m-n-3b4308380
+GitHub
+
+https://github.com/Maddy2k6
+
+LinkedIn
+
+https://linkedin.com/in/madhav-m-n-3b4308380
 
 ---
 
 <div align="center">
 
-### ⭐ If you enjoyed this project, consider giving it a Star!
+⭐ If you like this project, consider giving it a star!
 
 Made with ❤️ using Arduino + JavaScript
 
